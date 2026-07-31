@@ -1,0 +1,24 @@
+{
+  "name": "-backend-prof-renan",
+  "version": "0.0.1",
+  "description": "Aulas de BackEnd do Jovem Programador",
+  "homepage": "https://github.com/JohnTork/-backend-Prof-Renan#readme",
+  "bugs": {
+    "url": "https://github.com/JohnTork/-backend-Prof-Renan/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnTork/-backend-Prof-Renan.git"
+  },
+  "license": "ISC",
+  "author": "John Tork",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
