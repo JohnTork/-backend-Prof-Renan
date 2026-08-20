@@ -36,7 +36,7 @@ app.get("/api/salario/:valor/:hora", (req, res) => {
 })
 
 //exercicio 02 COM POST
-app.post("/api/salario/:valor/:hora", (req, res) => {
+app.post("/api/salario", (req, res) => {
   const valorGanho = req.body.valor
   const horaTrabalhadas = req.body.hora
 
@@ -62,7 +62,7 @@ app.get("/api/medpesos/:peso1/:peso2/:peso3/:peso4/:peso5", (req, res) => {
 
 //exercicio 03 COM POST
 
-app.post("/api/medpesos/:peso1/:peso2/:peso3/:peso4/:peso5", (req, res) => {
+app.post("/api/medpesos", (req, res) => {
   const peso1 = req.body.peso1
   const peso2 = req.body.peso2
   const peso3 = req.body.peso3
@@ -73,7 +73,7 @@ app.post("/api/medpesos/:peso1/:peso2/:peso3/:peso4/:peso5", (req, res) => {
   res.send({ message: media })
 })
 
-//exercio4
+//exercio4 - COM GET
 app.get("/api/convgraus/:celsius", (req, res) => {
   const celsius = Number(req.params.celsius)
   const fahrenheit = (9 * celsius + 160) / 5
@@ -81,7 +81,15 @@ app.get("/api/convgraus/:celsius", (req, res) => {
   res.send({ message: fahrenheit })
 })
 
-//exercio5
+//EXERCICIO 04 - COM POST
+app.post("/api/convgraus", (req, res) => {
+  const celsius = req.body.celsius
+  const fahrenheit = (9 * celsius + 160) / 5
+
+  res.send({ message: fahrenheit })
+})
+
+//exercio5 - COM GET
 app.get("/api/distancia/:milhas", (req, res) => {
   const milhas = Number(req.params.milhas)
   const km = milhas * 1.60934
@@ -89,15 +97,37 @@ app.get("/api/distancia/:milhas", (req, res) => {
   res.send({ message: km })
 })
 
-//exercio6
+//exercicio05 com POST
+app.post("/api/distancia", (req, res) => {
+  const milhas = req.body.milhas
+  const km = milhas * 1.60934
+
+  res.send({ message: km })
+})
+
+//exercio6 - COM GET
 app.get("/api/:segundos", (req, res) => {
   const segundos = Number(req.params.segundos)
-  const horas = Math.floor(segundos / 3600)
-  const minutos = Math.floor((segundos % 3600) / 60)
+  const horas = segundos / 3600
+  const minutos = (segundos % 3600) / 60
   const seg = segundos % 60
 
   res.send({ message: horas + " horas, " + minutos + " minutos e " + seg + " segundos" })
 })
+
+//exercicio06 com post
+app.post("/api/segundos", (req, res) => {
+  const segundos = req.body.seg
+  const horas = segundos / 3600
+  const minutos = (segundos % 3600) / 60
+  const seg = segundos % 60
+
+  res.send ({message: horas + "horas," + minutos + "minutos e" + seg + "segundos"})
+})
+
+      //EXERCICIO COM POST
+
+
 
 app.listen(3000, () => {
   console.log("Servidor na porta 3000")
